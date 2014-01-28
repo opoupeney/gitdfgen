@@ -1,0 +1,37 @@
+extends layout
+
+block dfg_content
+    div.col-md-8(style="padding-top:10px")
+        h1 DreamFace Generator
+            small &nbsp;version 1.0
+        p.
+            Welcome to the #{title}. This tool will help you to automate the creation of DreamFace components from an existing source.
+        div.panel.panel-default(style='margin-top:30px')
+            div.panel-heading
+                div.panel-title
+                    span.glyphicon.glyphicon-cog
+                    span(style='margin-left:10px') Available Generators
+            div.panel-body
+                table.table.table-condensed
+                    thead
+                        tr
+                            th Source
+                            th Generation
+                            th Action
+                    tbody
+                        tr
+                            td IBM BPM
+                            td Widgets & Queries for DreamFace Cloud App Platform
+                            td
+                                a.btn.btn-primary.btn-xs(href="/ibmbpm-to-dfcap.html")
+                                    span.glyphicon.glyphicon-play
+                                    span(style='margin-left:10px') Start
+                        tr
+                            td IBM BPM
+                            td Widgets & Queries for DreamFace X-Platform
+                            td
+                                a.btn.btn-primary.btn-xs(href="/")
+                                    span.glyphicon.glyphicon-play
+                                    span(style='margin-left:10px') Start
+    div.col-md-4(style="padding-top:10px")
+        img.pull-right( src='/images/logo_dreamface_160x30.png' )

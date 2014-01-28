@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title DreamFace Genenrator
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+        script(src='/js/jquery.min.js')
+        script(src='/bootstrap/js/bootstrap.min.js')
+        script(src='/js/dfg.js')
+    body#dfg_body
+        header#dfg_header
+            div#dfg_header_logo
+            div.dfg_header_vertical_border
+            div#dfg_header_menu
+                ul.nav.nav-pills
+                    li
+                        a(href="/") Home
+                    li
+                        a(href="/") Settings
+                    li
+                        a(href="/") Help
+        block dfg_content
+        div#dfg_footer
+            div Copyright (c) DreamFace Interactive, all rights reserved.

@@ -1,0 +1,26 @@
+extends layout
+
+block dfg_content
+    div.col-md-8(style="padding-top:10px")
+        h2 IBM-BPM to DreamFace Cloud App Platform
+        p.
+            This generator is used to generate DreamFace widgets from an existing process.
+        div.panel.panel-default
+            div.panel-heading
+                div.panel-title
+                    span.glyphicon.glyphicon-flash
+                    span(style="margin-left:10px") BPM Server Access
+            div.panel-body
+                form(role="form")
+                    div.form-group.col-md-6
+                        label(for="fldServerAddress") Server Address
+                        div.input-group
+                            input#fldServerAddress.form-control(placeholder="http://")
+                            span.input-group-btn
+                                button.btn.btn-primary(type="button", onclick="ibmbpmGetProcesses();") Connect
+                    div.form-group.col-md-6(style="display:none")
+                        div.input-group
+                            label(for="fldServerAddress") Available Processes
+                            select#fldAvailableProcesses.form-control
+                                option One
+                                option Two
