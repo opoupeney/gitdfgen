@@ -15,12 +15,21 @@ block dfg_content
                     div.form-group.col-md-6
                         label(for="fldServerAddress") Server Address
                         div.input-group
-                            input#fldServerAddress.form-control(placeholder="http://")
+                            input#fldServerAddress.form-control(placeholder="http://172.20.12.42:9080")
                             span.input-group-btn
                                 button.btn.btn-primary(type="button", onclick="ibmbpmGetProcesses();") Connect
-                    div.form-group.col-md-6(style="display:none")
-                        div.input-group
-                            label(for="fldServerAddress") Available Processes
-                            select#fldAvailableProcesses.form-control
-                                option One
-                                option Two
+                    span#panelAvailableProcesses(style="display:none")
+                        div.form-group.col-md-4
+                            div.input-group
+                                label(for="fldAvailableProcesses") Available Processes
+                                select#fldAvailableProcesses.form-control(onchange="ibmbpmClearSnapshots();")
+                        div.form-group.col-md-2
+                            label &nbsp;
+                            button.btn.btn-primary(type="button", onclick="ibmbpmGetSnapshots();") Load Snapshots
+                    span#panelAvailableSnapshots(style="display:none")
+                        div.form-group.col-md-12
+                            div.input-group
+                                label(for="fldAvailableSnapshots") Available Snapshots
+                                select#fldAvailableSnapshots.form-control
+                        div.form-group.col-md-12
+                            button.btn.btn-primary(type="button", onclick="ibmbpmGetVariables();") Load Variables

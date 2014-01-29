@@ -35,15 +35,26 @@ app.get('/ibmbpm-to-dfcap.html', routes.ibmbpm_to_dfcap);
 app.get('/users', user.list);
 
 app.get('/data', function(req, res) {
-    var data = '';
 
-    if (req.query.q == 'ibmbpm-1') {
-        data = ibmbpm.getProcesses(req);
+    if (req.query.q == 'ibmbpm-getprocesses') {
+        ibmbpm.getProcesses(req, function(data) {
+            res.setHeader('Content-Type', 'application/json; charset=utf-8');
+            res.setHeader('Content-Length', data.length);
+            res.end(data);
+        });
+    } else if (req.query.q == 'ibmbpm-getsnapshots') {
+        ibmbpm.getSnapshots(req, function(data) {
+            res.setHeader('Content-Type', 'application/json; charset=utf-8');
+            res.setHeader('Content-Length', data.length);
+            res.end(data);
+        });
+    } else if (req.query.q == 'ibmbpm-getvariables') {
+        ibmbpm.getVariables(req, function(data) {
+            res.setHeader('Content-Type', 'application/json; charset=utf-8');
+            res.setHeader('Content-Length', data.length);
+            res.end(data);
+        });
     }
-
-    res.setHeader('Content-Type', 'application/json; charset=utf-8');
-    res.setHeader('Content-Length', data.length);
-    res.end(data);
 });
 
 

@@ -1,12 +1,21 @@
 {
-  "name": "DreamFace Generator",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "express": "3.4.8",
-    "jade": "*"
-  }
+    "name": "DreamFace Generator",
+    "version": "0.0.1",
+    "author": {
+        "name": "Olivier Poupeney",
+        "email": "olivier@dreamface.org"
+    },
+    "private": true,
+    "dependencies": {
+        "express": "3.4.8",
+        "jade": "*"
+    },
+    "keywords": [
+        "dreamface",
+        "generator",
+        "bpm"
+    ],
+    "scripts": {
+        "start": "node app.js"
+    }
 }
