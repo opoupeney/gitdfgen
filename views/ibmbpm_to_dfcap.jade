@@ -1,7 +1,7 @@
 extends layout
 
 block dfg_content
-    div.col-md-8(style="padding-top:10px")
+    div.col-lg-12(style="padding-top:10px")
         h2 IBM-BPM to DreamFace Cloud App Platform
         p.
             This generator is used to generate DreamFace widgets from an existing process.
@@ -12,24 +12,59 @@ block dfg_content
                     span(style="margin-left:10px") BPM Server Access
             div.panel-body
                 form(role="form")
-                    div.form-group.col-md-6
-                        label(for="fldServerAddress") Server Address
-                        div.input-group
-                            input#fldServerAddress.form-control(placeholder="http://172.20.12.42:9080")
-                            span.input-group-btn
-                                button.btn.btn-primary(type="button", onclick="ibmbpmGetProcesses();") Connect
-                    span#panelAvailableProcesses(style="display:none")
-                        div.form-group.col-md-4
+                    div#panelServerAddress.col-lg-6
+                        div.form-group.col-lg-8
+                            div.input-group
+                                label(for="fldServerAddress") Server Address
+                                input#fldServerAddress.form-control(placeholder="http://172.20.12.42:9080")
+                        div.form-group.col-lg-4(style="padding-top: 24px;")
+                            button.btn.btn-primary(type="button", onclick="ibmbpmGetProcesses();") Connect
+                    div#panelAvailableProcesses.col-lg-6(style="display:none")
+                        div.form-group.col-lg-4
                             div.input-group
                                 label(for="fldAvailableProcesses") Available Processes
                                 select#fldAvailableProcesses.form-control(onchange="ibmbpmClearSnapshots();")
-                        div.form-group.col-md-2
-                            label &nbsp;
-                            button.btn.btn-primary(type="button", onclick="ibmbpmGetSnapshots();") Load Snapshots
-                    span#panelAvailableSnapshots(style="display:none")
-                        div.form-group.col-md-12
+                        div.form-group.col-lg-8(style="padding-top: 24px;")
+                            button.btn.btn-primary(type="button", onclick="ibmbpmGetSnapshots();") Load
+                    div#panelAvailableSnapshots.col-lg-6(style="display:none")
+                        div.form-group.col-lg-8
                             div.input-group
                                 label(for="fldAvailableSnapshots") Available Snapshots
                                 select#fldAvailableSnapshots.form-control
-                        div.form-group.col-md-12
-                            button.btn.btn-primary(type="button", onclick="ibmbpmGetVariables();") Load Variables
+                        div.form-group.col-lg-4(style="padding-top: 24px;")
+                            button.btn.btn-primary(type="button", onclick="ibmbpmGetAssets();") Load
+                    div.col-lg-6(style="display:none")
+        div#panelVariablesTitle.panel(style="position:fixed;left:15px;right:15px;top:400px;height:40px;box-shadow:0px;display:none")
+            div.panel-body(style="padding:0px;height:100%")
+                div.panel.panel-info.col-lg-2(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%")
+                    div.panel-heading
+                        div.panel-title
+                            span Human Services
+                div.panel.panel-info.col-lg-4(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%")
+                    div.panel-heading
+                        div.panel-title
+                            span#humanServiceDescTitle(style="margin-top:0px") Description
+                div.panel.panel-info.col-lg-6(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%")
+                    div.panel-heading
+                        div.panel-title
+                            span Widget Properties
+        div#panelVariables.panel(style="position:fixed;left:15px;right:15px;bottom:35px;top:440px;box-shadow:0px;display:none")
+            div.panel-body(style="padding:0px;height:100%")
+                div#humanServices.panel.panel-info.col-lg-2(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%")
+                    div.panel-body(style="border:0")
+                        div#humanServicesListItems
+                div#humanServiceDesc.panel.panel-info.col-lg-4(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%;overflow:auto")
+                    div.panel-body
+                        div#humanServiceModel
+                            div#humanServiceModelPropertiesPanel.input-group
+                                label Properties
+                                ul#humanServiceModelProperties
+                div#widgetProperties.panel.panel-info.col-lg-6(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%")
+                    div.panel-body
+                        form(role="form")
+                            div.input-group
+                                label(for="fldWidgetName") Widget Name
+                                input#fldWidgetName.form-control
+                            div.input-group.col-lg-12
+                                label(for="fldWidgetContent") Widget Content
+                                div#widgetContentPanel(style="border: 3px #ccc dashed;width:100%;height:auto;min-height:100px")

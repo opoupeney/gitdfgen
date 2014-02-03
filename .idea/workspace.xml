@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5630fcd0-e387-4095-b651-8b7233ab792d" name="Default" comment="">
+    <list default="true" id="5630fcd0-e387-4095-b651-8b7233ab792d" name="Default" comment="Introspection">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/dfg_logo_studio.png" afterPath="$PROJECT_DIR$/public/images/dfg_logo_studio.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/app_js.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/app_js.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/dfg.js" afterPath="$PROJECT_DIR$/public/js/dfg.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/ibmbpm.js" afterPath="$PROJECT_DIR$/lib/ibmbpm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/ibmbpm_to_dfcap.jade" afterPath="$PROJECT_DIR$/views/ibmbpm_to_dfcap.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.jade" afterPath="$PROJECT_DIR$/views/index.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gitdfgen.iws" />
@@ -36,7 +37,7 @@
       <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="1" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="390">
+            <state line="15" column="13" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="405">
               <folding />
             </state>
           </provider>
@@ -54,7 +55,7 @@
       <file leaf-file-name="index.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="65" selection-start="1688" selection-end="1688" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="630">
+            <state line="4" column="23" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="630">
               <folding />
             </state>
           </provider>
@@ -63,28 +64,26 @@
       <file leaf-file-name="ibmbpm_to_dfcap.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/ibmbpm_to_dfcap.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="85" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="600">
+            <state line="61" column="62" selection-start="3976" selection-end="3976" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dfg.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="dfg.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/dfg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="35" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1020">
+            <state line="22" column="1" selection-start="645" selection-end="645" vertical-scroll-proportion="0.3329208" vertical-offset="31" max-vertical-offset="2760">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ibmbpm.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ibmbpm.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/ibmbpm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="27" selection-start="2844" selection-end="2856" vertical-scroll-proportion="0.564867" vertical-offset="829" max-vertical-offset="2070">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="148" column="29" selection-start="4107" selection-end="4107" vertical-scroll-proportion="0.0" vertical-offset="1607" max-vertical-offset="2985">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -92,7 +91,16 @@
       <file leaf-file-name="layout.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layout.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="32" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="435">
+            <state line="8" column="51" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="56" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="255">
               <folding />
             </state>
           </provider>
@@ -110,7 +118,7 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="27" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1050">
+            <state line="57" column="30" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1230">
               <folding />
             </state>
           </provider>
@@ -130,24 +138,24 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/routes/ibmbpm_to_dfcap.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/public/javascripts/jquery.min.js" />
-        <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/public/javascripts/dfg.js" />
+        <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/lib/ibmbpm.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/ibmbpm_to_dfcap.jade" />
+        <option value="$PROJECT_DIR$/lib/ibmbpm.js" />
+        <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/public/js/dfg.js" />
+        <option value="$PROJECT_DIR$/views/ibmbpm_to_dfcap.jade" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="2560" />
-    <option name="height" value="1338" />
+    <option name="height" value="1335" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -175,7 +183,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -288,6 +295,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -369,22 +377,28 @@
       <created>1390778089842</created>
       <updated>1390778089842</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initiff&#10;">
+      <created>1391036487659</created>
+      <updated>1391036487659</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1338" extended-state="6" />
+    <frame x="0" y="22" width="2560" height="1335" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32938388" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4777344" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20195313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3992095" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40711462" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22274882" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -406,6 +420,9 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Initiff&#10;" />
+    <MESSAGE value="Introspection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Introspection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -450,10 +467,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/ibmbpm.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="27" selection-start="2844" selection-end="2856" vertical-scroll-proportion="0.0" vertical-offset="829" max-vertical-offset="2070">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="32" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="98" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="27" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="1" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="65" selection-start="1688" selection-end="1688" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/ibmbpm_to_dfcap.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="85" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="600">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/dfg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="35" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ibmbpm.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="102" column="27" selection-start="2844" selection-end="2856" vertical-scroll-proportion="0.0" vertical-offset="1324" max-vertical-offset="2070">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -521,9 +599,7 @@
     <entry file="file://$PROJECT_DIR$/lib/ibmbpm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="31" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="210">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -591,9 +667,7 @@
     <entry file="file://$PROJECT_DIR$/lib/ibmbpm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="31" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="210">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -637,21 +711,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="65" selection-start="1688" selection-end="1688" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="4" selection-start="64179" selection-end="64179" vertical-scroll-proportion="0.05263158" vertical-offset="0" max-vertical-offset="855" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="8" selection-start="124" selection-end="132" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/package.json">
@@ -659,47 +721,59 @@
         <state line="61" column="4" selection-start="1136" selection-end="1278" vertical-scroll-proportion="0.5511222" vertical-offset="252" max-vertical-offset="1455" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="32" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="435">
+        <state line="4" column="23" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="56" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="1" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="390">
+        <state line="15" column="13" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="405">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="27" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/ibmbpm_to_dfcap.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="85" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="600">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/dfg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="35" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="990">
+        <state line="57" column="30" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1230">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/ibmbpm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="27" selection-start="2844" selection-end="2856" vertical-scroll-proportion="0.564867" vertical-offset="829" max-vertical-offset="2070">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="148" column="29" selection-start="4107" selection-end="4107" vertical-scroll-proportion="0.0" vertical-offset="1607" max-vertical-offset="2985">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="51" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/ibmbpm_to_dfcap.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="62" selection-start="3976" selection-end="3976" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/dfg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="1" selection-start="645" selection-end="645" vertical-scroll-proportion="0.3329208" vertical-offset="31" max-vertical-offset="2760">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,5 @@
 {
-    "name": "DreamFace Generator",
+    "name": "DreamFace IO",
     "version": "0.0.1",
     "author": {
         "name": "Olivier Poupeney",
@@ -13,6 +13,7 @@
     "keywords": [
         "dreamface",
         "generator",
+        "io",
         "bpm"
     ],
     "scripts": {
