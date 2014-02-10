@@ -8,6 +8,8 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var MongoClient = require('mongodb').MongoClient;
+var MongoServer = require('mongodb').Server
 
 var app = express();
 
@@ -69,7 +71,21 @@ app.get('/data', function(req, res) {
     }
 });
 
-
+app.post('/generate', function(req, res) {
+    var mongoclient = new MongoClient(new MongoServer("localhost", 27017), {native_parser: true});
+    mongoclient.open(function(err, mongoclient) {
+        var db = mongoclient.db('dreamface_db');
+        var dw_collection = db.collection('dfdemo.datawidgets');
+        dw_collection.insert( req.body, {w:1}, function(err_ins, result) {
+            db.close();
+            var result_string = JSON.stringify(result);
+            console.log( result_string );
+            res.setHeader('Content-Type', 'application/json; charset=utf-8');
+            res.setHeader('Content-Length', result_string.length);
+            res.end(result_string);
+        });
+    });
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('DreamFace Generator listening on port ' + app.get('port'));

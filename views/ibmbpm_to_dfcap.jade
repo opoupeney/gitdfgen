@@ -10,7 +10,9 @@ block dfg_content
                 div.panel-title
                     span.glyphicon.glyphicon-flash
                     span(style="margin-left:10px") BPM Server Access
-            div.panel-body
+                    a.pull-right(href="#", onclick="ibmbpmToggleServerAccessPanel();")
+                        span#panelServerAccessToggleIcon.glyphicon.glyphicon-circle-arrow-down
+            div#panelServerAccess.panel-body
                 form(role="form")
                     div#panelServerAddress.col-lg-6
                         div.form-group.col-lg-8
@@ -50,7 +52,7 @@ block dfg_content
                             span Widget Properties
         div#panelVariables.panel(style="position:fixed;left:15px;right:15px;bottom:35px;top:440px;box-shadow:0px;display:none")
             div.panel-body(style="padding:0px;height:100%")
-                div#humanServices.panel.panel-info.col-lg-2(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%")
+                div#humanServices.panel.panel-info.col-lg-2(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%;overflow:auto")
                     div.panel-body(style="border:0")
                         div#humanServicesListItems
                 div#humanServiceDesc.panel.panel-info.col-lg-4(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%;overflow:auto")
@@ -59,12 +61,29 @@ block dfg_content
                             div#humanServiceModelPropertiesPanel.input-group
                                 label Properties
                                 ul#humanServiceModelProperties
-                div#widgetProperties.panel.panel-info.col-lg-6(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%")
+                div#widgetProperties.panel.panel-info.col-lg-6(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%;overflow:auto")
                     div.panel-body
                         form(role="form")
-                            div.input-group
-                                label(for="fldWidgetName") Widget Name
-                                input#fldWidgetName.form-control
-                            div.input-group.col-lg-12
-                                label(for="fldWidgetContent") Widget Content
-                                div#widgetContentPanel(style="border: 3px #ccc dashed;width:100%;height:auto;min-height:100px")
+                            div.form-group.col-lg-6
+                                div.input-group.col-lg-12
+                                    label(for="fldWidgetName") Widget Name
+                                    input#fldWidgetName.form-control
+                            div.form-group.col-lg-6
+                                div.input-group.col-lg-12
+                                    label(for="fldWidgetCategory") Widget Category
+                                    input#fldWidgetCategory.form-control
+                            div.form-group.col-lg-12
+                                div.input-group.col-lg-12
+                                    label(for="fldWidgetDescription") Widget Description
+                                    input#fldWidgetDescription.form-control
+                            div.form-group.col-lg-12
+                                div.input-group.col-lg-12
+                                    label Widget Content
+                                    div#widgetContentPanel(style="border: 3px #ccc dashed;width:100%;height:auto;min-height:100px;margin-bottom:10px")
+                                        ul#widgetContentList(element-data-type="sortable")
+                                    button.btn.btn-primary(onclick="$('#widgetContentList').empty();") Clear
+                            div.form-group.col-lg-12
+                                div.input-group.col-lg-12
+                                    label Generation
+                                    br
+                                    button.btn.btn-primary(onclick="ibmbpmGenerateToDFCloudApp();") Start

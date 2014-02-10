@@ -1,5 +1,5 @@
 {
-    "name": "DreamFace IO",
+    "name": "dreamface.io",
     "version": "0.0.1",
     "author": {
         "name": "Olivier Poupeney",
@@ -8,7 +8,8 @@
     "private": true,
     "dependencies": {
         "express": "3.4.8",
-        "jade": "*"
+        "jade": "*",
+        "mongodb": "*"
     },
     "keywords": [
         "dreamface",
