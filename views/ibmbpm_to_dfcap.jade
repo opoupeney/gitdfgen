@@ -20,22 +20,28 @@ block dfg_content
                                 label(for="fldServerAddress") Server Address
                                 input#fldServerAddress.form-control(placeholder="http://172.20.12.42:9080")
                         div.form-group.col-lg-4(style="padding-top: 24px;")
-                            button.btn.btn-primary(type="button", onclick="ibmbpmGetProcesses();") Connect
+                            button.btn.btn-primary(type="button", style="width:85px", onclick="ibmbpmGetProcesses();") Connect
                     div#panelAvailableProcesses.col-lg-6(style="display:none")
                         div.form-group.col-lg-4
                             div.input-group
                                 label(for="fldAvailableProcesses") Available Processes
                                 select#fldAvailableProcesses.form-control(onchange="ibmbpmClearSnapshots();")
                         div.form-group.col-lg-8(style="padding-top: 24px;")
-                            button.btn.btn-primary(type="button", onclick="ibmbpmGetSnapshots();") Load
+                            button.btn.btn-primary(type="button", style="width:85px", onclick="ibmbpmGetSnapshots();") Load
                     div#panelAvailableSnapshots.col-lg-6(style="display:none")
                         div.form-group.col-lg-8
                             div.input-group
                                 label(for="fldAvailableSnapshots") Available Snapshots
                                 select#fldAvailableSnapshots.form-control
                         div.form-group.col-lg-4(style="padding-top: 24px;")
-                            button.btn.btn-primary(type="button", onclick="ibmbpmGetAssets();") Load
-                    div.col-lg-6(style="display:none")
+                            button.btn.btn-primary(type="button", style="width:85px", onclick="ibmbpmGetAssets();") Load
+                    div#panelAvailableDiagrams.col-lg-6(style="display:none")
+                        div.form-group.col-lg-4
+                            div.input-group
+                                label(for="fldAvailableDiagrams") Available Diagrams
+                                select#fldAvailableDiagrams.form-control
+                        div.form-group.col-lg-8(style="padding-top: 24px;")
+                            button.btn.btn-primary(type="button", style="width:85px", onclick="ibmbpmOpenDiagram();") Load
         div#panelVariablesTitle.panel(style="position:fixed;left:15px;right:15px;top:400px;height:40px;box-shadow:0px;display:none")
             div.panel-body(style="padding:0px;height:100%")
                 div.panel.panel-info.col-lg-2(style="padding:0px;border-radius:0px;box-shadow:0px;height:100%")
@@ -87,3 +93,11 @@ block dfg_content
                                     label Generation
                                     br
                                     button.btn.btn-primary(onclick="ibmbpmGenerateToDFCloudApp();") Start
+        div#panelDiagramTitle.panel.panel-default(style="position:fixed;left:15px;right:15px;top:60px;height:40px;box-shadow:0px;border-radius:0;display:none")
+            div.panel-heading
+                div.panel-title
+                    span Process Diagram
+                    a.pull-right(href="#", onclick="ibmbpmCloseDiagram();")
+                        span.glyphicon.glyphicon-remove-circle
+        div#panelDiagram.panel.panel-default(style="position:fixed;left:15px;right:15px;bottom:15px;top:100px;box-shadow:0px;border-radius:0;overflow:auto;display:none")
+            svg#panelDiagramBody(xmlns="http://www.w3.org/2000/svg")

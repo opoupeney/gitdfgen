@@ -40,7 +40,9 @@ function ibmbpmGetProcesses() {
 
 function ibmbpmClearSnapshots() {
     $( '#fldAvailableSnapshots' ).empty();
+    $( '#fldAvailableDiagrams' ).empty();
     $( '#panelAvailableSnapshots').css( 'display', 'none' );
+    $( '#panelAvailableDiagrams').css( 'display', 'none' );
     $( '#panelVariablesTitle').css( 'display', 'none' );
     $( '#panelVariables').css( 'display', 'none' );
 }
@@ -49,6 +51,7 @@ function ibmbpmGetSnapshots() {
     var server_address = $( '#fldServerAddress').val();
     var process_id = $('#fldAvailableProcesses').val();
     $( '#fldAvailableSnapshots' ).empty();
+    $( '#fldAvailableDiagrams' ).empty();
 
     $.ajax({
         url: '/data',
@@ -57,11 +60,264 @@ function ibmbpmGetSnapshots() {
         success: function(data) {
             var i=0;
             for(i=0; i<data.snapshots.length; i++) {
-                $( '#fldAvailableSnapshots' ).append( '<option value="' + data.snapshots[i].ID + '">' + data.snapshots[i].name + '</option>' );
+                $( '#fldAvailableSnapshots' ).append( '<option value="' + data.snapshots[i].ID + '" branch-id="' + data.snapshots[i].branchID + '">' + data.snapshots[i].name + '</option>' );
             }
             $( '#panelAvailableSnapshots').css( 'display', 'block' );
         }
     });
+}
+
+function ibmbpmOpenDiagram() {
+    var server_address = $( '#fldServerAddress').val();
+    var snapshot_id = $('#fldAvailableSnapshots').val();
+    var branch_id = $('#fldAvailableSnapshots option[value="' + snapshot_id + '"]').attr( 'branch-id' );
+    var po_id = $('#fldAvailableDiagrams').val();
+
+    $( '#panelDiagramBody' ).empty();
+
+    $.ajax({
+        url: '/data',
+        data: 'q=ibmbpm-getvisualmodel&snapshot_id='+snapshot_id+'&branch_id='+branch_id+'&po_id='+po_id,
+        dataType: 'json',
+        success: function(data) {
+            var i= 0, j=0;
+
+            $( '#panelDiagramBody' ).attr( 'height', data.data.height );
+
+            for(i=0; i<data.data.items.length; i++) {
+                if (data.data.items[i].type == 'swimlane') {
+                    var diagram_activity_colors = {
+                        "Green": "#f1f9ee",
+                        "Default": "#dedede",
+                        "Blue": "#dcecf0",
+                        "Purple": "#ffffff"
+                    }
+                    var diagram_element = '<rect swimlane="' + data.data.items[i].label + '" ' +
+                        'width="' + data.data.items[i].width + '" ' +
+                        'height="' + data.data.items[i].height + '" ' +
+                        'x="' + data.data.items[i].x + '" ' +
+                        'y="' + data.data.items[i].y + '" ' +
+                        'fill="' + diagram_activity_colors[data.data.items[i].color] + '" />';
+                    $( '#panelDiagramBody' ).append( diagram_element );
+                }
+
+            }
+
+            for(i=0; i<data.data.items.length; i++) {
+                var diagram_element_id = "id" + Math.random().toString(16).slice(2);
+                var diagram_element = '';
+                var x = parseInt($( '[swimlane="' + data.data.items[i].lane + '"]').attr('x'));
+                var y = parseInt($( '[swimlane="' + data.data.items[i].lane + '"]').attr('y'));
+
+                var texts = data.data.items[i].label.split('\n');
+
+                if (data.data.items[i].type == 'activity') {
+                    var icon_color = '#75afff';
+
+                    if (data.data.items[i].colorIcon.indexOf('yellow_75')>-1) {
+                        icon_color = '#feef77';
+                    } else if (data.data.items[i].colorIcon.indexOf('purple_75')>-1) {
+                        icon_color = '#cfa5cd';
+                    } else if (data.data.items[i].colorIcon.indexOf('orange_75')>-1) {
+                        icon_color = '#ffc876';
+                    }
+                    diagram_element = '<rect id="' + diagram_element_id + '" diagram-element-id="' + data.data.items[i].id +
+                        '" diagram-element-type="activity" x="' + (x+data.data.items[i].x) + '" y="' + (y+data.data.items[i].y) + '" width="95" height="70" fill="' + icon_color + '"/>';
+                        for(j=0; j<texts.length; j++) {
+                            diagram_element += '<text  x="' + (x+data.data.items[i].x + 10) + '" y="' + (y+data.data.items[i].y+18+(18*j)) + '" fill="#333" class="dfg_bpm_activity_txt">' + texts[j] + '</text>';
+                        }
+                    $( '#panelDiagramBody' ).append( diagram_element );
+
+                } else if (data.data.items[i].type == 'start') {
+                    diagram_element = '<circle id="' + diagram_element_id + '" diagram-element-id="' + data.data.items[i].id +
+                        '" diagram-element-type="start" cx="' + (x+data.data.items[i].x+12) + '" cy="' + (y+data.data.items[i].y+12) + '" r="12" fill="#4b93fc" />';
+                    for(j=0; j<texts.length; j++) {
+                        diagram_element += '<text  x="' + (x+data.data.items[i].x) + '" y="' + (y+data.data.items[i].y+40+(18*j)) + '" fill="#333" class="dfg_bpm_activity_txt">' + texts[j] + '</text>';
+                    }
+                    $( '#panelDiagramBody' ).append( diagram_element );
+                } else if (data.data.items[i].type == 'end') {
+                    diagram_element = '<circle id="' + diagram_element_id + '" diagram-element-id="' + data.data.items[i].id +
+                        '" diagram-element-type="end" cx="' + (x+data.data.items[i].x+12) + '" cy="' + (y+data.data.items[i].y+12) + '" r="12" fill="#315d9f" />';
+                    for(j=0; j<texts.length; j++) {
+                        diagram_element += '<text  x="' + (x+data.data.items[i].x) + '" y="' + (y+data.data.items[i].y+40+(18*j)) + '" fill="#333" class="dfg_bpm_activity_txt">' + texts[j] + '</text>';
+                    }
+                    $( '#panelDiagramBody' ).append( diagram_element );
+                } else if (data.data.items[i].type == 'gateway') {
+                    diagram_element = '<circle id="' + diagram_element_id + '" diagram-element-id="' + data.data.items[i].id +
+                        '" diagram-element-type="gateway" cx="' + (x+data.data.items[i].x+39) + '" cy="' + (y+data.data.items[i].y+16) + '" r="16" />';
+                    for(j=0; j<texts.length; j++) {
+                        var canvas = document.createElement('canvas');
+                        var ctx = canvas.getContext("2d");
+                        ctx.font = "11px Arial";
+                        var text_width = ctx.measureText(texts[j]).width;
+                        var text_width_offset = parseInt((text_width - 32) / 2);
+                        diagram_element += '<text  x="' + (x+data.data.items[i].x+23 - text_width_offset) + '" y="' + (y+data.data.items[i].y+40+(18*j)) + '" fill="#333" class="dfg_bpm_activity_txt">' + texts[j] + '</text>';
+                    }
+                    $( '#panelDiagramBody' ).append( diagram_element );
+                }
+            }
+
+
+            for(i=0; i<data.data.links.length; i++) {
+                //if (i==1) {
+                    var diagram_link_item = data.data.links[i];
+                    var start_element = $( '[diagram-element-id="' + diagram_link_item.start + '"')[0];
+                    var start_element_type = $(start_element).attr( 'diagram-element-type' );
+                    var start_x = 0;
+                    var start_y = 0;
+
+                    if (start_element_type=='activity') {
+                        start_x = parseInt($(start_element).attr( 'x' ));
+                        start_y = parseInt($(start_element).attr( 'y' ));
+                        if (data.data.links[i].startPosition=='rightCenter') {
+                            start_x += 95;
+                            start_y += 35;
+                        } else if (data.data.links[i].startPosition=='leftCenter') {
+                            start_x += 0;
+                            start_y += 35;
+                        } else if (data.data.links[i].startPosition=='topCenter') {
+                            start_x += 47;
+                            start_y += 0;
+                        } else if (data.data.links[i].startPosition=='topRight') {
+                            start_x += 75;
+                            start_y += 0;
+                        } else if (data.data.links[i].startPosition=='topLeft') {
+                            start_x += 20;
+                            start_y += 0;
+                        } else {
+                            start_x += 47;
+                            start_y += 70;
+                        }
+                    } else if (start_element_type=='start' || start_element_type=='end') {
+                        start_x = parseInt($(start_element).attr( 'cx' ));
+                        start_y = parseInt($(start_element).attr( 'cy' ));
+                        if (data.data.links[i].startPosition=='rightCenter') {
+                            start_x += 12;
+                            start_y += 0;
+                        } else if (data.data.links[i].startPosition=='leftCenter') {
+                            start_x += -12;
+                            start_y += 0;
+                        } else if (data.data.links[i].startPosition=='topCenter') {
+                            start_x += 0;
+                            start_y += -12;
+                        } else {
+                            start_x += 0;
+                            start_y += 12;
+                        }
+                    } else if (start_element_type=='gateway') {
+                        start_x = parseInt($(start_element).attr( 'cx' ));
+                        start_y = parseInt($(start_element).attr( 'cy' ));
+                        if (data.data.links[i].startPosition=='rightCenter') {
+                            start_x += 16;
+                            start_y += 0;
+                        } else if (data.data.links[i].startPosition=='leftCenter') {
+                            start_x += -16;
+                            start_y += 0;
+                        } else if (data.data.links[i].startPosition=='topCenter') {
+                            start_x += 0;
+                            start_y += -16;
+                        } else {
+                            start_x += 0;
+                            start_y += 16;
+                        }
+                    }
+
+                    var end_element = $( '[diagram-element-id="' + diagram_link_item.end + '"')[0];
+                    var end_element_type = $(end_element).attr( 'diagram-element-type' );
+                    var end_x = 0;
+                    var end_y = 0;
+
+                    if (end_element_type=='activity') {
+                        end_x = parseInt($(end_element).attr( 'x' ));
+                        end_y = parseInt($(end_element).attr( 'y' ));
+                        if (data.data.links[i].endPosition=='rightCenter') {
+                            end_x += 95;
+                            end_y += 35;
+                        } else if (data.data.links[i].endPosition=='leftCenter') {
+                            end_x += 0;
+                            end_y += 35;
+                        } else if (data.data.links[i].endPosition=='topCenter') {
+                            end_x += 47;
+                            end_y += 0;
+                        } else if (data.data.links[i].endPosition=='topRight') {
+                            end_x += 75;
+                            end_y += 0;
+                        } else if (data.data.links[i].endPosition=='topLeft') {
+                            end_x += 20;
+                            end_y += 0;
+                        } else {
+                            end_x += 47;
+                            end_y += 70;
+                        }
+                    } else if (end_element_type=='start' || end_element_type=='end') {
+                        end_x = parseInt($(end_element).attr( 'cx' ));
+                        end_y = parseInt($(end_element).attr( 'cy' ));
+                        if (data.data.links[i].endPosition=='rightCenter') {
+                            end_x += 12;
+                            end_y += 0;
+                        } else if (data.data.links[i].endPosition=='leftCenter') {
+                            end_x += -12;
+                            end_y += 0;
+                        } else if (data.data.links[i].endPosition=='topCenter') {
+                            end_x += 0;
+                            end_y += -12;
+                        } else {
+                            end_x += 0;
+                            end_y += 12;
+                        }
+                    } else if (end_element_type=='gateway') {
+                        end_x = parseInt($(end_element).attr( 'cx' ));
+                        end_y = parseInt($(end_element).attr( 'cy' ));
+                        if (data.data.links[i].endPosition=='rightCenter') {
+                            end_x += 16;
+                            end_y += 0;
+                        } else if (data.data.links[i].endPosition=='leftCenter') {
+                            end_x += -16;
+                            end_y += 0;
+                        } else if (data.data.links[i].endPosition=='topCenter') {
+                            end_x += 0;
+                            end_y += -16;
+                        } else {
+                            end_x += 0;
+                            end_y += 16;
+                        }
+                    }
+
+                    var diagram_link = '';
+                    var gfx = JSON.parse(data.data.links[i].gfx);
+                    if (gfx.intermediatePoints != null && gfx.intermediatePoints.length>0) {
+                        var intermediate_start_x = start_x;
+                        var intermediate_start_y = start_y;
+                        for (j=0; j<gfx.intermediatePoints.length; j++) {
+                            var intermediate_end_x = gfx.intermediatePoints[j].x;
+                            var intermediate_end_y = gfx.intermediatePoints[j].y;
+                            diagram_link = '<line render-order="2" x1="' + intermediate_start_x + '" y1="' + intermediate_start_y + '" x2="' + intermediate_end_x + '" y2="' + intermediate_end_y + '" style="stroke:#474747;stroke-width:2" />';
+                            $( '#panelDiagramBody' ).append( diagram_link );
+                            intermediate_start_x = intermediate_end_x;
+                            intermediate_start_y = intermediate_end_y;
+                        }
+                        diagram_link = '<line render-order="2" x1="' + intermediate_start_x + '" y1="' + intermediate_start_y + '" x2="' + end_x + '" y2="' + end_y + '" style="stroke:#474747;stroke-width:2" />';
+                        $( '#panelDiagramBody' ).append( diagram_link );
+                    } else {
+                        diagram_link = '<line render-order="2" x1="' + start_x + '" y1="' + start_y + '" x2="' + end_x + '" y2="' + end_y + '" style="stroke:#474747;stroke-width:2" />';
+                        $( '#panelDiagramBody' ).append( diagram_link );
+                    }
+
+
+                    $( '#panelDiagram').html( $( '#panelDiagram').html() );
+                //}
+            }
+            $( '#panelDiagram').html( $( '#panelDiagram').html() );
+            $( '#panelDiagramTitle' ).css( 'display', 'block' );
+            $( '#panelDiagram' ).css( 'display', 'block' );
+        }
+    });
+
+}
+
+function ibmbpmCloseDiagram() {
+    $( '#panelDiagramTitle' ).css( 'display', 'none' );
+    $( '#panelDiagram' ).css( 'display', 'none' );
 }
 
 function ibmbpmGetAssets() {
@@ -85,6 +341,10 @@ function ibmbpmGetAssets() {
             }
             $( '#panelVariablesTitle').css( 'display', 'block' );
             $( '#panelVariables').css( 'display', 'block' );
+            for(i=0; i<data.data['BPD'].length; i++) {
+                $( '#fldAvailableDiagrams' ).append( '<option value="' + data.data['BPD'][i].poId + '">' + data.data['BPD'][i].name + '</option>' );
+            }
+            $( '#panelAvailableDiagrams').css( 'display', 'block' );
 
         }
     });

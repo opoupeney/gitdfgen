@@ -50,6 +50,12 @@ app.get('/data', function(req, res) {
             res.setHeader('Content-Length', data.length);
             res.end(data);
         });
+    } else if (req.query.q == 'ibmbpm-getvisualmodel') {
+        ibmbpm.getVisualModel(req, function(data) {
+            res.setHeader('Content-Type', 'application/json; charset=utf-8');
+            res.setHeader('Content-Length', data.length);
+            res.end(data);
+        });
     } else if (req.query.q == 'ibmbpm-getassets') {
         ibmbpm.getAssets(req, function(data) {
             res.setHeader('Content-Type', 'application/json; charset=utf-8');

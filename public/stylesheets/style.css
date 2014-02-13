@@ -62,6 +62,89 @@ a {
 }
 
 /* Draggable elements */
+
 .dfg_draggable {
     cursor: move;
+}
+
+/* Diagram BPM Elements */
+
+.dfg_bpm_swimlane {
+    position: absolute;
+    min-width: 100%;
+    border:1px #ccc solid;
+}
+
+.dfg_bpm_swimlane_Blue {
+    background: #75c0ff;
+    color: #000;
+}
+
+.dfg_bpm_swimlane_Green {
+    background: #dcffca;
+    color: #000;
+}
+
+.dfg_bpm_swimlane_Purple {
+    background: #fff2fe;
+    color: #000;
+}
+
+.dfg_bpm_swimlane_Default {
+    background: #f0f0f0;
+    color: #000;
+}
+
+.dfg_bpm_activity_txt {
+    text-align: center;
+    vertical-align: middle;
+    font-family: arial, sans-serif;
+    font-size: 11px;
+    color: #383838;
+}
+
+.dfg_bpm_start {
+    width:40px;
+    height:40px;
+    line-height:36px;
+    border:1px #383838 solid;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: arial, sans-serif;
+    font-size: 11px;
+    color: #383838;
+    background: #a1a1a1;
+}
+
+.dfg_bpm_start {
+    width:25px;
+    height:25px;
+    border:3px #383838 solid;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: middle;
+    background: #cecece;
+}
+
+.dfg_bpm_start_txt {
+    font-family: arial, sans-serif;
+    font-size: 11px;
+    color: #383838;
+}
+
+.dfg_bpm_end {
+    width:25px;
+    height:25px;
+    border:3px #383838 solid;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: middle;
+    background: #cecece;
+}
+
+.dfg_bpm_end_txt {
+    font-family: arial, sans-serif;
+    font-size: 11px;
+    color: #383838;
 }
